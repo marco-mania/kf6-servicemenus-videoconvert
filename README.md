@@ -35,7 +35,6 @@ Per user installation:
 
 In that case the directory `~/.local/bin` has to be be placed in the search path
 environment variable `$PATH`.
-E.g. for a Fish shell you can simply call `fish_add_path ~/.local/bin`.
 Also make sure your .desktop files are execuatable
 `chmod +x ~/.local/share/kio/servicemenus/videoconvert.desktop.desktop
 
