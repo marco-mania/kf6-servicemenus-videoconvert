@@ -1,66 +1,109 @@
-# KDE service menus for video file converting
+# KDE Service Menus for Video File Conversion
 
-KDE service menus for video file converting to the common video formats
-MP4 or WebM. The encoding specifications are chosen for wide compatibility and
-good tradeoff between encoding speed and size.
+Easily convert video files to popular formats like MP4 or WebM using KDE service menus. The encoding settings are optimized for broad compatibility and a good balance between encoding speed and file size.
 
-The conversion is done using FFmpeg. If available, hardware encoding with VAAPI
-will be used.
+Conversion is performed using **FFmpeg**. If available, hardware encoding with **VAAPI** will be used for enhanced performance.
+
+---
 
 ## Prerequisites
 
-* [KDE](https://www.kde.org/)
-* [FFmpeg](https://www.ffmpeg.org/)
-* [BC](https://www.gnu.org/software/bc/)
+Ensure the following tools are installed:
+
+- [KDE](https://www.kde.org/)  
+- [FFmpeg](https://ffmpeg.org/)  
+- [BC](https://www.gnu.org/software/bc/)  
+
+### For hardware encoding support on Intel CPUs:
+
+- [Intel Media Driver](https://01.org/linuxmedia)  
+- [libva-intel-driver](https://github.com/intel/libva)  
+- [libva-utils](https://github.com/intel/libva-utils)  
+
+---
 
 ## Installation (Plasma 6)
 
-Install the requirements (Arch Linux):
+### Install Dependencies (Arch Linux)
 
-    sudo pacman -S ffmpeg qt6-tools bc
+Run the following command to install the required tools:
 
-For hardware encoding support on Intel CPU:
+```bash
+sudo pacman -S ffmpeg qt6-tools bc
+```
 
-    sudo pacman -S intel-media-driver libva-intel-driver libva-utils
+For hardware encoding support on Intel CPUs, install:
 
-To install system wide:
+```bash
+sudo pacman -S intel-media-driver libva-intel-driver libva-utils
+```
 
-    sudo cp servicemenus/* /usr/share/kio/servicemenus/
-    sudo cp bin/videoconvert-kdialog /usr/local/bin/
+### System-Wide Installation
 
-Per user installation:
+Copy the necessary files to the system directories:
 
-    cp servicemenus/* ~/.local/share/kio/servicemenus/
-    cp bin/videoconvert-kdialog ~/.local/bin
+```bash
+sudo cp servicemenus/* /usr/share/kio/servicemenus/
+sudo cp bin/videoconvert-kdialog /usr/local/bin/
+```
 
-In that case the directory `~/.local/bin` has to be be placed in the search path
-environment variable `$PATH`.
-Also make sure your .desktop files are execuatable
-`chmod +x ~/.local/share/kio/servicemenus/videoconvert.desktop.desktop
+### Per-User Installation
 
-Finally you need to restart your plasma session or call:
+For a user-specific setup, copy the files as follows:
 
-    kbuildsycoca6
+```bash
+cp servicemenus/* ~/.local/share/kio/servicemenus/
+cp bin/videoconvert-kdialog ~/.local/bin
+```
 
-## Uninstall
+Make sure the `~/.local/bin` directory is included in your `$PATH` environment variable.  
+Additionally, set the `.desktop` files to be executable:
 
-System wide installation:
+```bash
+chmod +x ~/.local/share/kio/servicemenus/videoconvert.desktop
+```
 
-    sudo rm /usr/share/kio/servicemenus/videoconvert.desktop.desktop
-    sudo rm /usr/local/bin/videoconvert-kdialog
+Finally, restart your Plasma session or run the following command:
 
-Per user installation:
+```bash
+kbuildsycoca6
+```
 
-    rm ~/.local/share/kio/servicemenus/videoconvert.desktop.desktop
-    rm ~/./local/bin/videoconvert-kdialog
+---
+
+## Uninstallation
+
+### System-Wide Uninstallation
+
+Remove the installed files:
+
+```bash
+sudo rm /usr/share/kio/servicemenus/videoconvert.desktop
+sudo rm /usr/local/bin/videoconvert-kdialog
+```
+
+### Per-User Uninstallation
+
+Delete the corresponding files:
+
+```bash
+rm ~/.local/share/kio/servicemenus/videoconvert.desktop
+rm ~/.local/bin/videoconvert-kdialog
+```
+
+---
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to
-discuss what you would like to change.
+We welcome contributions! Please follow these guidelines:
 
-Please make sure to update tests as appropriate.
+- For major changes, open an issue first to discuss your ideas.
+- Ensure any necessary tests are updated appropriately.
+
+Pull requests are encouraged and appreciated.
+
+---
 
 ## License
 
-[GPL-3.0+](https://www.gnu.org/licenses/gpl-3.0.de.html)
+This project is licensed under [GPL-3.0+](https://www.gnu.org/licenses/gpl-3.0.html).
